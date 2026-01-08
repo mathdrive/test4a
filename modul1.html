@@ -21,6 +21,11 @@ window.MathJax = {
 <script id="MathJax-script" defer
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+    <script>
+window.addEventListener('load', () => {
+  MathJax.typesetPromise(); // сразу прогоняем все формулы после загрузки
+});
+</script>
     <style>
 /* Основной стиль вопросов */
 .question {
