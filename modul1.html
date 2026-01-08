@@ -1,0 +1,3023 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математичний тест</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+/* Основной стиль вопросов */
+.question {
+
+  background-image: url("https://i.postimg.cc/t4jzBh2Z/In-Shot-20251128-232217997.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+/* Раскрывающиеся блоки*/
+details {
+
+  background: rgba(255, 255, 255, 0.7);
+
+  border-radius: 8px;
+
+  padding: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+}
+
+summary {
+
+  font-weight: bold;
+
+  font-size: 18px;
+
+}
+
+details[open] {
+
+  background: rgba(255, 255, 255, 0.9);
+
+  transform: scale(1.02);
+
+}
+
+/* Общие настройки */
+
+body {
+
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  color: #0b1c63; /* благородный тёмно-синий */
+
+  background-color: #f6f8ff;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+/* Каждый вопрос */
+
+.question {
+
+  font-weight: bold;
+
+  background-image: url("https://i.postimg.cc/t4jzBh2Z/In-Shot-20251128-232217997.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  padding: 20px;
+
+  margin: 20px auto;
+
+  width: 90%;
+
+  max-width: 700px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+}
+
+/* Отступы между вариантами ответов */
+
+.options label {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+}
+
+.question ul li {
+
+  margin-bottom: 10px; /* расстояние между вариантами */
+
+  line-height: 1.6;   /* чтобы текст дышал */
+
+}
+
+/* Вопросы 1–20: увеличиваем расстояние между буквой и текстом */
+.question ul li {
+  margin-bottom: 16px; /* расстояние между пунктами */
+  line-height: 1.6;    /* чтобы текст "дышал" */
+  display: flex;        /* для гибкого выравнивания */
+  align-items: center;
+}
+
+/* Создаём отступ между буквой и текстом */
+.choice-letter {
+
+  display: inline-block;
+
+  width: 45px;         /* регулирует расстояние между буквой и формулой */
+
+  text-align: right;
+
+  font-weight: bold;
+
+  margin-right: 10px;
+
+}
+
+.question ul li {
+
+  display: flex;
+
+  align-items: center;
+
+}
+/* Кнопка "Перевірити" */
+
+.check-btn {
+
+  background-color: #2b4e9e;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 8px 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  margin-top: 10px;
+
+}
+
+.check-btn:hover {
+
+  background-color: #1f3c7a;
+
+}
+
+/* Поле для открытого ответа */
+
+.open-answer {
+
+  width: 200px;
+
+  padding: 10px;
+
+  border: 2px solid #2b4e9e;
+
+  border-radius: 8px;
+
+  margin-top: 10px;
+
+  font-weight: bold;
+
+  color: #0b1c63;
+
+}
+
+/* Прячем стандартные кружочки */
+
+.answer-buttons input[type="radio"] {
+
+  display: none;
+
+}
+
+/* Стиль кнопок */
+
+.answer-buttons label {
+
+  display: inline-block;
+
+  background-color: #2b4e9e; /* благородный синий */
+
+  color: white;
+
+  padding: 10px 20px;
+
+  margin: 6px;
+
+  border-radius: 10px; /* скруглённые углы */
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  font-size: 16px;
+
+  transition: background-color 0.3s, transform 0.2s;
+
+}
+
+/* Эффект при наведении */
+
+.answer-buttons label:hover {
+
+  background-color: #1f3c7a;
+
+  transform: scale(1.05);
+
+}
+
+/* Когда ответ выбран */
+
+.answer-buttons input[type="radio"]:checked + label {
+
+  background-color: #3a5cdf;
+
+box-shadow: 0 0 10px rgba(74, 123, 247, 0.6);
+
+}
+/* Общий контейнер для задания */
+
+.question {
+
+  margin-bottom: 40px;
+
+  color: #0a1a57; /* благородный тёмно-синий */
+
+  font-weight: bold;
+
+}
+
+/* Контейнер для колонок */
+
+.matching {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 12px; /* расстояние между колонками */
+
+  margin-bottom: 12px;
+
+}
+
+/* Левая и правая колонка */
+
+.left-column, .right-column {
+
+  width: 90%; /* чтобы две влезли рядом */
+
+  background-color: rgba(255, 255, 255, 0.55);
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Заголовки в колонках */
+
+.left-column h4, .right-column h4 {
+
+  text-align: center;
+
+  margin-bottom: 10px;
+
+  color: #08205c;
+
+  text-decoration: underline;
+
+}
+
+/* Текст в колонках */
+
+.left-column p, .right-column p {
+
+  margin: 8px 0;
+
+  line-height: 1.5;
+
+}
+.left-column p {
+
+  margin-bottom: 30px; /* расстояние между пунктами */
+
+}
+
+/* Таблица с радиокнопками */
+
+.match-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  text-align: center;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.match-table th,
+
+.match-table td {
+
+  padding: 8px 10px;
+
+  border: 1px solid #d0d0d0;
+
+}
+
+.match-table th {
+
+  background-color: #e9eefc;
+
+  color: #0a1a57;
+
+}
+
+/* Радиокнопки — немного увеличить */
+
+.match-table input[type="radio"] {
+
+  transform: scale(1.2);
+
+  accent-color: #0a1a57; /* благородный синий */
+
+}
+
+/* Только для вопроса 22 — уменьшаем шрифт в левой колонке */
+
+#q22 .left-column p {
+
+  font-size: 0.97em; /* можно подобрать — 0.9em, 0.85em и т.д. */
+
+  line-height: 1.3;
+
+}
+
+.hint {
+
+  font-size: 0.8em;
+
+  color: #0b1c63;
+
+  margin-top: 5px;
+
+}
+/* Только для вопроса 23 — уменьшаем шрифт в левой колонке */
+
+#q23 .left-column p {
+
+  font-size: 0.97em; /* можно подобрать — 0.9em, 0.85em и т.д. */
+
+  line-height: 1.3;
+
+}
+
+.hint {
+
+  font-size: 0.8em;
+
+  color: #0b1c63;
+
+  margin-top: 5px;
+
+}
+/* Стартовый экран теста */
+
+.test-start {
+
+  text-align: center;
+
+  max-width: 700px;
+
+  margin: 60px auto;
+
+  padding: 40px 20px;
+
+  background-color: #ffffff;
+
+  border-radius: 20px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+.test-title {
+
+  font-size: 28px;
+
+  font-weight: 600;
+
+  margin-bottom: 15px;
+
+  color: #0b1c63;
+
+}
+
+.test-intro {
+
+  font-size: 10px;
+
+  color: #555;
+
+  margin-bottom: 30px;
+
+}
+
+.start-btn {
+
+  background-color: #2b4e9e;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 12px 30px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+
+.start-btn:hover {
+
+  background-color: #1f3c7a;
+
+  transform: scale(1.05);
+
+}
+
+/* Панель с номерами вопросов */
+
+/* Анимация появления панели навигации */
+
+.question-nav {
+
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+
+}
+
+.question-nav.visible {
+
+  opacity: 1;
+
+}
+
+/* общ. настройки навигации */
+.question-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px; /* расстояние между кружками */
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+/* стиль кружка */
+.question-nav button {
+  width: 28px; /* уменьшили диаметр */
+  height: 28px;
+  border-radius: 50%; /* полностью круглый */
+  border: 2px solid #0b1c63; /* рамка */
+  background-color: #fff; /* фон пропущенных */
+  color: #0b1c63; /* цвет цифры */
+  font-weight: 600;
+  font-size: 14px; /* чуть меньше цифры */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* При наведении — светло-синий фон */
+.question-nav button:hover {
+  background-color: #a0b3e6;
+  color: #0b1c63;
+}
+
+/* Отвеченные вопросы — синий фон, цифра белая */
+.question-nav button.answered:not(.active) {
+  background-color: #0b1c63;
+  color: #fff;
+  border-color: #0b1c63;
+  text-shadow: 0 1px 0 #fff, 0 2px 3px rgba(0,0,0,0.3);
+}
+
+/* Текущий вопрос — только обводка и мягкое свечение */
+
+.question-nav button.active {
+
+  background-color: #fff; /* оставляем белый фон, не закрашиваем цифру */
+
+  color: #0b1c63; /* цвет цифры */
+
+  border: 1px solid #c0c8e0; /* более выразительная рамка */
+
+  box-shadow: 0 0 20px rgba(11,28,99,0.5), 0 0 15px rgba(11,28,99,0.3); /* мягкое свечение */
+
+}
+
+/* При наведении — усиленное свечение, без изменения фона */
+
+.question-nav button:hover {
+
+  background-color: #fff; /* фон не меняется */
+
+  color: #0b1c63;
+
+  box-shadow: 0 0 6px 2px rgba(1,28,99,0.5), 0 0 15px rgba(11,28,99,0.4);
+
+  transform: scale(1.05); /* небольшой эффект увеличения */
+
+}
+
+/* Контейнер навигационных кнопок */
+
+#nav-buttons {
+
+  display: block;
+
+  justify-content: center; /* выравнивание по центру */
+
+  gap: 15px; /* расстояние между кнопками */
+
+  margin: 20px auto;
+
+}
+
+/* Общий стиль кнопок навигации */
+
+#nav-buttons button {
+
+  background-color: #2b4e9e; /* благородный тёмно-синий */
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 15px 28px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+}
+
+/* Подсветка при наведении */
+
+#nav-buttons button:hover {
+
+  background-color: #1f3c7a; /* чуть светлее */
+
+  transform: scale(1.05);
+
+  box-shadow: 0 0 10px rgba(74, 123, 247, 0.4);
+
+}
+
+/* Эффект нажатия */
+
+#nav-buttons button:active {
+
+  transform: scale(0.97);
+
+  box-shadow: none; /* убираем подсветку при нажатии */
+
+}
+
+/* Убираем фокусную обводку/тень для кнопок навигации */
+
+#nav-buttons button:focus,
+
+#nav-buttons button:focus-visible {
+
+  outline: none;
+
+  box-shadow: none;
+
+  background-color: #2b4e9e; /* исходный фон */
+
+  color: #fff;              /* исходный цвет текста */
+
+}
+
+
+/* Навигация: полузакрашенный кружок и полностью закрашенный */
+
+.question-nav button.half {
+
+  background: linear-gradient(to bottom, #0b1c63 50%, #fff 50%);
+
+  color: #fff;
+
+  border-color: #0b1c63;
+  text-shadow: 0 1px 0 #fff, 0 2px 3px rgba(0,0,0,0.3);
+-webkit-text-fill-color: transparent;
+}
+
+.question-nav button.answered {
+
+  background-color: #0b1c63;
+
+  color: #fff;
+
+  border-color: #0b1c63;
+
+}
+
+
+/* Немного плавнее при смене состояний */
+
+.question-nav button {
+
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.2s;
+
+}
+
+/* ==== ФОН ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТОВ ==== */
+
+#results-screen {
+
+  background-image: url("https://i.postimg.cc/t4jzBh2Z/In_Shot_20251128_232217997.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  
+
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+
+  margin-top: 20px;
+
+}
+
+/*====ЗАГОЛОВОК «ВАШ РЕЗУЛЬТАТ»====*/
+
+#results-screen h2,
+
+.results-title {
+
+  text-align: center;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  color: #0b1c63;
+
+  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+
+  margin-bottom: 20px;
+
+  letter-spacing: 1px;
+
+}
+  
+
+/*==== ПАНЕЛЬ С БАЛЛАМИ — В РАМКЕ ====*/
+
+#results-summary {
+
+  background: rgba(0,0,0,0.0);
+
+  border: 2px solid #0b1c63; /* чтобы рамка точно была видна */
+
+  border-radius: 10px;
+
+  padding: 5px 10px;
+
+  margin-bottom: 20px;
+
+  font-size: 16px;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+  display: inline-block; /* важное дополнение */
+
+}
+  
+  
+/* === Контейнер для кнопок (вопросы 1-20) === */
+
+#results-list {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки на телефоне */
+
+  gap: 10px;
+
+}
+
+@media (min-width: 768px) {
+
+  #results-list {
+
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок на планшете/ПК */
+
+  }
+
+}
+
+/* === Кнопки результата === */
+
+.result-btn {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start; /* текст слева */
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  min-width: 120px;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  line-height: 1.2;
+
+  text-align: left;
+
+  color: #0b1c63; /* весь текст синий */
+
+  background-color: #fff;
+
+  border: 2px solid #0b1c63; /* рамка по умолчанию синяя */
+
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* лёгкий объём */
+
+  transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+/* === Правильный ответ === */
+
+.result-btn.correct {
+
+  border-color: #2ecc71; /* зелёная рамка */
+
+  box-shadow: inset 0 2px 4px rgba(46, 204, 113, 0.2); /* лёгкий inset */
+
+}
+
+/* === Неправильный ответ === */
+
+.result-btn.wrong {
+
+  border-color: #e74c3c; /* красная рамка */
+
+  box-shadow: inset 0 2px 4px rgba(231, 76, 60, 0.2); /* лёгкий inset */
+
+}
+
+/* === Неправильный ответ — маленький текст "Правильна відповідь:" === */
+
+.result-btn .correct-answer {
+
+  font-size: 10px;
+
+  margin-top: 4px;
+
+  color: #0b1c63; /* синий текст */
+
+}
+
+/* === Строки внутри кнопки === */
+
+.result-btn .question-title, 
+
+.result-btn .user-answer {
+
+  font-size: 14px;
+
+  margin-bottom: 2px;
+
+  color: #0b1c63; /* синий текст */
+
+}
+
+.result-btn .user-answer-label,
+
+.result-btn .correct-answer-label {
+
+  color: #0b1c63;
+
+  font-weight: bold;
+
+  margin-top: 4px;
+
+}
+
+.result-btn .user-answer-values,
+
+.result-btn .correct-answer-values {
+
+  color: #0b1c63;
+
+  margin-left: 8px;
+
+  margin-bottom: 4px;
+
+}
+
+/* Подсветка отдельных вариантов */
+
+.answer.correct-answer-bg {
+
+  background-color: #2ecc71;
+
+  color: #fff;
+
+  padding: 2px 6px;
+
+  border-radius: 4px;
+
+  margin-right: 2px;
+
+}
+
+.answer.wrong-answer-bg {
+
+  background-color: #e74c3c;
+
+  color: #fff;
+
+  padding: 2px 6px;
+
+  border-radius: 4px;
+
+  margin-right: 2px;
+
+}
+.result-btn .user-answer-values {
+
+  font-size: 12px; /* меньше, чем заголовки */
+
+  margin-left: 8px;
+
+  margin-bottom: 4px;
+
+}
+@media (max-width: 480px) {
+
+  .result-btn .user-answer-values {
+
+    font-size: 12px;
+
+  }
+
+}
+/* Размер текста для правильных ответов */
+
+.result-btn .correct-answer-values {
+
+  font-size: 14px; /* меньше, чем заголовки */
+
+  margin-left: 8px;
+
+  margin-bottom: 4px;
+
+}
+
+/* Адаптация для маленьких экранов */
+
+@media (max-width: 480px) {
+
+  .result-btn .correct-answer-values {
+
+    font-size: 12px;
+
+  }
+
+}
+#question-nav button.correct {
+
+  background: #4CAF50;
+
+  color: #fff;
+
+}
+
+#question-nav button.wrong {
+
+  background: #E53935;
+
+  color: #fff;
+
+}
+
+#question-nav button.half {
+
+  background: linear-gradient(90deg, #4CAF50 50%, #E53935 50%);
+
+  color: #fff;
+
+}
+
+/*нижние кнопки*/
+.results-buttons {
+
+  display: flex;
+
+  justify-content: center; /* по центру */
+
+  gap: 20px; /* расстояние между кнопками */
+
+  margin-top: 16px;
+
+}
+
+.results-buttons button {
+
+  background-color: #2b4e9e;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 8px 14px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+  
+  font-size: 10px; /* размер шрифта */
+}
+
+.results-buttons button:hover {
+
+  background-color: #1f3c7a;
+
+}
+
+/* ДОПОЛНЕНИЕ для кнопки Зааершити тест*/
+
+#finish-test {
+
+  display: block;
+
+  margin: 20px auto;
+
+  width: fit-content; /* чтобы кнопка не растягивалась */
+
+}
+#q23 .left-column {
+
+  /* Збільшуємо ширину лівої колонки для питання 23 */
+
+  width: 70%; /* Спробуйте 65% або 70% */
+
+}
+
+#q23 .right-column {
+
+  /* Відповідно зменшуємо ширину правої колонки */
+
+  width: 30%; /* Спробуйте 35% або 30% */
+
+}
+
+.matching {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 15px;
+
+}
+
+.left-column, .right-column {
+
+  padding: 0 10px;
+
+}
+
+.left-column {
+
+  /* Встановлюємо ширину, як у попередніх завданнях */
+
+  width: 50%; 
+
+}
+
+.right-column {
+
+  width: 50%;
+
+}
+
+/* Стилі для заголовків колонок */
+
+.matching h4 {
+
+  border-bottom: 1px solid #ccc;
+
+  padding-bottom: 5px;
+
+  margin-bottom: 10px;
+
+}
+#q25 .left-column {
+
+  /* Збільшуємо ширину лівої колонки для питання 25 */
+
+  width: 70%; /* Спробуйте 65% або 70% */
+
+}
+
+#q25 .right-column {
+
+  /* Відповідно зменшуємо ширину правої колонки */
+
+  width: 30%; /* Спробуйте 35% або 30% */
+
+}
+
+.matching {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 15px;
+
+}
+
+.left-column, .right-column {
+
+  padding: 0 10px;
+
+}
+
+.left-column {
+
+  /* Встановлюємо ширину, як у попередніх завданнях */
+
+  width: 50%; 
+
+}
+
+.right-column {
+
+  width: 50%;
+
+}
+
+/* Стилі для заголовків колонок */
+
+.matching h4 {
+  
+border-bottom: 1px solid #ccc;
+
+  padding-bottom: 5px;
+
+  margin-bottom: 10px;
+
+}
+
+   </style>
+</head>
+<body>
+<html lang="ua">
+
+<head>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Математический тест</title>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" async
+
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+
+</head>
+
+<body>
+
+<!-- Стартовый экран теста -->
+<div id="start-screen" class="card test-start">
+  <div class="card-content">
+    <h2 class="test-title">4.
+      Числові та буквені вирази з модулем</h2>
+    <p class="test-intro">Натисніть на кнопку нижче, щоб розпочати тестування.</p>
+    <button id="start-button" class="btn start-btn">Розпочати тест</button>
+  </div>
+</div>
+  
+<!-- Панель навигации по вопросам -->
+<div id="question-nav" class="question-nav" style="display: none;"></div>
+  
+  <!-- Форма для вопросов -->
+
+  <form id="mathTest">
+
+    <!-- Завдання 1 -->
+<div class="question" id="q1" data-correct="Б">
+  <p>1. Знайдіть значення виразу 
+        \(\frac{|x-1|}{x-1} + \frac{|x|}{x}\) при \(x \in (0; 1)\).</p>
+
+  <!-- Варианты ответа -->
+
+    <ul>
+  <li><span class="choice-letter">А.</span>&nbsp;&nbsp;&nbsp;\( 2\)</li>
+  <li><span class="choice-letter">Б.</span> &nbsp;&nbsp;&nbsp;\( 0\)</li>
+  <li><span class="choice-letter">В.</span> \( -2\)</li>
+  <li><span class="choice-letter">Г.&nbsp;</span>&nbsp;&nbsp;&nbsp;\(1\)</li>
+  <li><span class="choice-letter">Д.</span> \(-1\)</li>
+</ul>
+  
+  <!-- Радио-кнопки для выбора правильного варианта -->
+   <div class="answer-buttons">
+
+     <input type="radio" name="q1" value="А" id="q1a">
+
+<label for="q1a" class="square-btn">А</label>
+  
+  <input type="radio" name="q1" value="Б" id="q1b">
+
+<label for="q1b" class="square-btn">Б</label>
+  
+  <input type="radio" name="q1" value="В" id="q1c">
+
+<label for="q1c" class="square-btn">В</label>
+  
+  <input type="radio" name="q1" value="Г" id="q1d">
+
+<label for="q1d" class="square-btn">Г</label>
+  
+  <input type="radio" name="q1" value="Д" id="q1e">
+
+<label for="q1e" class="square-btn">Д</label>
+  
+         </div>
+</div>
+  <!-- Задание 2-->
+
+<div class="question" id="q2" data-correct="Г">
+
+  <p>2.  Чому дорівнює 
+    \( |1 - \sqrt{2}| + |\sqrt{2} - \sqrt{3}| + |\sqrt{3} - 2| \)?</p>
+
+  <!-- Варианты ответа -->
+
+  
+<ul class="choices">
+
+  <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;  \(2\sqrt{3}-1\)</span></li>
+
+  <li> <span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  \(3\)</span></li>
+
+  <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(2\sqrt{3}\)</span></li>
+
+  <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \(1\)</span></li>
+
+  <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(1-2\sqrt{3}\)</span></li>
+
+</ul>
+    
+  
+    <!-- Радио-кнопки для выбора правильного варианта -->
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q2" value="А" id="q2a">
+
+    <label for="q2a" class="square-btn">А</label>
+
+    <input type="radio" name="q2" value="Б" id="q2b">
+
+    <label for="q2b" class="square-btn">Б</label>
+
+    <input type="radio" name="q2" value="В" id="q2c">
+
+    <label for="q2c" class="square-btn">В</label>
+
+    <input type="radio" name="q2" value="Г" id="q2d">
+
+    <label for="q2d" class="square-btn">Г</label>
+
+    <input type="radio" name="q2" value="Д" id="q2e">
+
+    <label for="q2e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+<!-- Задание 3-->
+
+<div class="question" id="q3" data-correct="Б">
+
+  <p>3. Обчисліть значення виразу 
+    \( |a - 2| + |a + 2| \), якщо \( a \in (-2; 2) \).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;\(0\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;&nbsp;\(4\) </span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;\(2a\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">  \(-4\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;&nbsp;\(a\)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q3" value="А" id="q3a">
+
+    <label for="q3a" class="square-btn">А</label>
+
+    <input type="radio" name="q3" value="Б" id="q3b">
+
+    <label for="q3b" class="square-btn">Б</label>
+
+    <input type="radio" name="q3" value="В" id="q3c">
+
+    <label for="q3c" class="square-btn">В</label>
+
+    <input type="radio" name="q3" value="Г" id="q3d">
+
+    <label for="q3d" class="square-btn">Г</label>
+
+    <input type="radio" name="q3" value="Д" id="q3e">
+
+    <label for="q3e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 4-->
+
+<div class="question" id="q4" data-correct="В">
+
+  <p>4. Спростіть вираз 
+    \( |\sqrt{10} - 3| - |\sqrt{10} - 4| \).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(1\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(-1\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp; \(2\sqrt{10} - 7\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text"> &nbsp;\(\sqrt{10} - 7\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(-7\)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q4" value="А" id="q4a">
+
+    <label for="q4a" class="square-btn">А</label>
+
+    <input type="radio" name="q4" value="Б" id="q4b">
+
+    <label for="q4b" class="square-btn">Б</label>
+
+    <input type="radio" name="q4" value="" id="q4c">
+
+    <label for="q4c" class="square-btn">В</label>
+
+    <input type="radio" name="q4" value="Г" id="q4d">
+
+    <label for="q4d" class="square-btn">Г</label>
+
+    <input type="radio" name="q4" value="Д" id="q4e">
+
+    <label for="q4e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  <!-- Задание 5-->
+
+<div class="question" id="q5" data-correct="B">
+
+  <p>5. Укажіть проміжок, до якого належить \( x \), щоб виконувалася рівність 
+    \( |x^3 - x^2| = x^3 - x^2 \).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">\( [1; +\infty) \)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\( \{0\} \cup [1; +\infty) \)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">\( (-\infty; -1] \cup \{0\} \)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\((-\infty; -1] \cup [1; +\infty) \)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\( [0; 1] \)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q5" value="А" id="q5a">
+
+    <label for="q5a" class="square-btn">А</label>
+
+    <input type="radio" name="q5" value="Б" id="q5b">
+
+    <label for="q5b" class="square-btn">Б</label>
+
+    <input type="radio" name="q5" value="В" id="q5c">
+
+    <label for="q5c" class="square-btn">В</label>
+
+    <input type="radio" name="q5" value="Г" id="q5d">
+
+    <label for="q5d" class="square-btn">Г</label>
+
+    <input type="radio" name="q5" value="Д" id="q5e">
+
+    <label for="q5e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 6-->
+
+<div class="question" id="q6" data-correct="B">
+
+  <p>6. Яке з наведених чисел є розв’язком рівняння 
+    \( |a| - 3 = 1 \)?</p> 
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(-4\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(3\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(-3\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(2\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(-2\)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q6" value="А" id="q6a">
+
+    <label for="q6a" class="square-btn">А</label>
+
+    <input type="radio" name="q6" value="Б" id="q6b">
+
+    <label for="q6b" class="square-btn">Б</label>
+
+    <input type="radio" name="q6" value="В" id="q6c">
+
+    <label for="q6c" class="square-btn">В</label>
+
+    <input type="radio" name="q6" value="Г" id="q6d">
+
+    <label for="q6d" class="square-btn">Г</label>
+
+    <input type="radio" name="q6" value="Д" id="q6e">
+
+    <label for="q6e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  <!-- Задание 7-->
+
+<div class="question" id="q7" data-correct="Д">
+
+  <p>7. Знайдіть значення виразу \( |3b - 8| \), якщо 
+    \( 64 - 48b + 9b^2 = \frac{49}{64} \).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(-\frac{7}{8} \)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(-\frac{8}{7} \)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;\(1\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(\frac{8}{7} \)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(\frac{7}{8} \)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q7" value="А" id="q7a">
+
+    <label for="q7a" class="square-btn">А</label>
+
+    <input type="radio" name="q7" value="Б" id="q7b">
+
+    <label for="q7b" class="square-btn">Б</label>
+
+    <input type="radio" name="q7" value="В" id="q7c">
+
+    <label for="q7c" class="square-btn">В</label>
+
+    <input type="radio" name="q7" value="Г" id="q7d">
+
+    <label for="q7d" class="square-btn">Г</label>
+
+    <input type="radio" name="q7" value="Д" id="q7e">
+
+    <label for="q7e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 8-->
+
+<div class="question" id="q8" data-correct="В">
+
+  <p>8. Спростіть вираз \( \frac{x^2 - 9}{|x + 3|} \), якщо \( x \lt -3 \).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(x - 3\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(x + 3\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(3-x\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(-x - 3\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(x + 9\)</span></li>
+
+</ul>
+  
+  <div class="answer-buttons">
+
+    <input type="radio" name="q8" value="А" id="q8a">
+
+    <label for="q8a" class="square-btn">А</label>
+
+    <input type="radio" name="q8" value="Б" id="q8b">
+
+    <label for="q8b" class="square-btn">Б</label>
+
+    <input type="radio" name="q8" value="В" id="q8c">
+
+    <label for="q8c" class="square-btn">В</label>
+
+    <input type="radio" name="q8" value="Г" id="q8d">
+
+    <label for="q8d" class="square-btn">Г</label>
+
+    <input type="radio" name="q8" value="Д" id="q8e">
+
+    <label for="q8e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 9-->
+
+<div class="question" id="q9" data-correct="Д">
+
+  <p>9. Знайдіть значення виразу \( \sqrt{(2 - \sqrt{7})^2} + \sqrt{(3 - \sqrt{7})^2} \).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(5-2\sqrt{7}\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(5\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(2\sqrt{7}-5\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(5+2\sqrt{7}\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(1\)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q9" value="А" id="q9a">
+
+    <label for="q9a" class="square-btn">А</label>
+
+    <input type="radio" name="q9" value="Б" id="q9b">
+
+    <label for="q9b" class="square-btn">Б</label>
+
+    <input type="radio" name="q9" value="В" id="q9c">
+
+    <label for="q9c" class="square-btn">В</label>
+
+    <input type="radio" name="q9" value="Г" id="q9d">
+
+    <label for="q9d" class="square-btn">Г</label>
+
+    <input type="radio" name="q9" value="Д" id="q9e">
+
+    <label for="q9e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 10-->
+
+<div class="question" id="q10" data-correct="В">
+
+  <p>10. Обчисліть \( |\pi - 4| + |3 - \pi| \).</p>
+
+ <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">\( 2\pi - 7 \)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(-1\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(1\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(7\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\( 2\pi + 7 \)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q10" value="А" id="q10a">
+
+    <label for="q10a" class="square-btn">А</label>
+
+    <input type="radio" name="q10" value="Б" id="q10b">
+
+    <label for="q10b" class="square-btn">Б</label>
+
+    <input type="radio" name="q10" value="В" id="q10c">
+
+    <label for="q10c" class="square-btn">В</label>
+
+    <input type="radio" name="q10" value="Г" id="q10d">
+
+    <label for="q10d" class="square-btn">Г</label>
+
+    <input type="radio" name="q10" value="Д" id="q10e">
+
+    <label for="q10e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 11-->
+
+<div class="question" id="q11" data-correct="A">
+
+  <p>11. Знайдіть значення виразу \(|n| + |6 - 2n|\), при \(n=-2\).</p>
+
+  <ul class="choices">
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(12\)</span></li>
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(4\)</span></li>
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(-4\)</span></li>
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(8\)</span></li>
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(0\)</span></li>
+
+  </ul>
+
+  <div class="answer-buttons">
+
+    <input type="radio" name="q11" value="А" id="q11a">
+
+    <label for="q11a" class="square-btn">А</label>
+
+    <input type="radio" name="q11" value="Б" id="q11b">
+
+    <label for="q11b" class="square-btn">Б</label>
+
+    <input type="radio" name="q11" value="В" id="q11c">
+
+    <label for="q11c" class="square-btn">В</label>
+
+    <input type="radio" name="q11" value="Г" id="q11d">
+
+    <label for="q11d" class="square-btn">Г</label>
+
+    <input type="radio" name="q11" value="Д" id="q11e">
+
+    <label for="q11e" class="square-btn">Д</label>
+
+  </div>
+
+</div>
+  
+  <!-- Задание 12-->  
+    <div class="question" id="q12" data-correct="A">
+
+  <p>12. Чому може дорівнювати \(a\), якщо \(3|a|=3\).</p>    
+      
+ <ul class="choices"> 
+
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(0\)</span></li>  
+
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(2\)</span></li>  
+
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(-2\)</span></li>  
+
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(3\)</span></li>  
+
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(-1\)</span></li>  
+
+  </ul>    <div class="answer-buttons">  
+
+    <input type="radio" name="q12" value="А" id="q12a">  
+
+    <label for="q12a" class="square-btn">А</label> 
+      
+      <input type="radio" name="q12" value="Б" id="q12b">  
+
+<label for="q12b" class="square-btn">Б</label>  
+
+<input type="radio" name="q12" value="В" id="q12c">  
+
+<label for="q12c" class="square-btn">В</label>  
+
+<input type="radio" name="q12" value="Г" id="q12d">  
+
+<label for="q12d" class="square-btn">Г</label>  
+
+<input type="radio" name="q12" value="Д" id="q12e">  
+
+<label for="q12e" class="square-btn">Д</label>
+
+  </div>  
+
+</div>
+  
+  <!-- Задание 13-->
+<div class="question" id="q13" data-correct="А">
+  <p>13. Cпростіть вираз \(|x-5| - |x+1|\), якщо відомо, що \( x \in [-1; 5] \).
+  </p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(4-2x\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(2\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(4\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(4+2x\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(2x-4\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q13" value="А" id="q13a">
+    <label for="q13a" class="square-btn">А</label>
+
+    <input type="radio" name="q13" value="Б" id="q13b">
+    <label for="q13b" class="square-btn">Б</label>
+
+    <input type="radio" name="q13" value="В" id="q13c">
+    <label for="q13c" class="square-btn">В</label>
+
+    <input type="radio" name="q13" value="Г" id="q13d">
+    <label for="q13d" class="square-btn">Г</label>
+
+    <input type="radio" name="q13" value="Д" id="q13e">
+    <label for="q13e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 14-->
+<div class="question" id="q14" data-correct="В">
+  <p>14. Скільки сілих чисел задовільняють умову \(|x-2|\le1\)?</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(1\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(2\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(3\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(0\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(4\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q14" value="А" id="q14a">
+    <label for="q14a" class="square-btn">А</label>
+
+    <input type="radio" name="q14" value="Б" id="q14b">
+    <label for="q14b" class="square-btn">Б</label>
+
+    <input type="radio" name="q14" value="В" id="q14c">
+    <label for="q14c" class="square-btn">В</label>
+
+    <input type="radio" name="q14" value="Г" id="q14d">
+    <label for="q14d" class="square-btn">Г</label>
+
+    <input type="radio" name="q14" value="Д" id="q14e">
+    <label for="q14e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 15-->
+<div class="question" id="q15" data-correct="А">
+  <p>15. Який із наведених виразів не має змісту, якщо \( a = |x| \) та \( x = 0 \)? </p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(\frac{a+1}{a}\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(\frac{a}{a+2}\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;\(|a - 5| \)
+  </span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(\sqrt{a + 1} \)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;\(a^2 - 1\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q15" value="А" id="q15a">
+    <label for="q15a" class="square-btn">А</label>
+
+    <input type="radio" name="q15" value="Б" id="q15b">
+    <label for="q15b" class="square-btn">Б</label>
+
+    <input type="radio" name="q15" value="В" id="q15c">
+    <label for="q15c" class="square-btn">В</label>
+
+    <input type="radio" name="q15" value="Г" id="q15d">
+    <label for="q15d" class="square-btn">Г</label>
+
+    <input type="radio" name="q15" value="Д" id="q15e">
+    <label for="q15e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 16-->
+<div class="question" id="q16" data-correct="Б">
+  <p>16. Яке з наведених чисел може бути розв’язком рівняння \( |2x - 5| = 3 \)? </p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(-4\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(1\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(0\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(5\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(3\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q16" value="А" id="q16a">
+    <label for="q16a" class="square-btn">А</label>
+
+    <input type="radio" name="q16" value="Б" id="q16b">
+    <label for="q16b" class="square-btn">Б</label>
+
+    <input type="radio" name="q16" value="В" id="q16c">
+    <label for="q16c" class="square-btn">В</label>
+
+    <input type="radio" name="q16" value="Г" id="q16d">
+    <label for="q16d" class="square-btn">Г</label>
+
+    <input type="radio" name="q16" value="Д" id="q16e">
+    <label for="q16e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 17-->
+<div class="question" id="q17" data-correct="Г">
+  <p>17. Скільки цілих чисел задовольняють умову \( |x| \le 3,5 \)?</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\(4\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\(5\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(6\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(7\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\(безліч\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q17" value="А" id="q17a">
+    <label for="q17a" class="square-btn">А</label>
+
+    <input type="radio" name="q17" value="Б" id="q17b">
+    <label for="q17b" class="square-btn">Б</label>
+
+    <input type="radio" name="q17" value="В" id="q17c">
+    <label for="q17c" class="square-btn">В</label>
+
+    <input type="radio" name="q17" value="Г" id="q17d">
+    <label for="q17d" class="square-btn">Г</label>
+
+    <input type="radio" name="q17" value="Д" id="q17e">
+    <label for="q17e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 18-->
+<div class="question" id="q18" data-correct="А">
+  <p>18. Визначте знак виразу \( a \cdot b \), якщо відомо, що \( |a| + |b| = |a + b| \)&nbsp;&nbsp;та&nbsp;&nbsp;\( a, \; b \neq 0 \).</p>
+
+  <ul class="choices">
+     <li><span class="choice-letter">А.</span><span class="choice-text">\( a \cdot b \gt 0 \)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\( a \cdot b \lt 0 \) </span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\( a \cdot b = 0 \)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\(визначити \;неможливо\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">\( a \cdot b = 1 \)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q18" value="А" id="q18a">
+    <label for="q18a" class="square-btn">А</label>
+
+    <input type="radio" name="q18" value="Б" id="q18b">
+    <label for="q18b" class="square-btn">Б</label>
+
+    <input type="radio" name="q18" value="В" id="q18c">
+    <label for="q18c" class="square-btn">В</label>
+
+    <input type="radio" name="q18" value="Г" id="q18d">
+    <label for="q18d" class="square-btn">Г</label>
+
+    <input type="radio" name="q18" value="Д" id="q18e">
+    <label for="q18e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 19-->
+<div class="question" id="q19" data-correct="Д">
+ <p>19. Обчисліть значення виразу \( ||x| - 5| - |x| \), якщо \( x = -2 \).</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(7\)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(5\)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\(-1\)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(3\)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text">&nbsp;&nbsp;&nbsp;\(1\)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q19" value="А" id="q19a">
+    <label for="q19a" class="square-btn">А</label>
+
+    <input type="radio" name="q19" value="Б" id="q19b">
+    <label for="q19b" class="square-btn">Б</label>
+
+    <input type="radio" name="q19" value="В" id="q19c">
+    <label for="q19c" class="square-btn">В</label>
+
+    <input type="radio" name="q19" value="Г" id="q19d">
+    <label for="q19d" class="square-btn">Г</label>
+
+    <input type="radio" name="q19" value="Д" id="q19e">
+    <label for="q19e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 20-->
+<div class="question" id="q20" data-correct="В">
+  <p>20. Укажіть рівняння, яке не має жодного розв'язку.</p>
+
+  <ul class="choices">
+    <li><span class="choice-letter">А.</span><span class="choice-text">\( |x| - 5 = 0 \)</span></li>
+    <li><span class="choice-letter">Б.</span><span class="choice-text">\( |x + 3| = 0 \)</span></li>
+    <li><span class="choice-letter">В.</span><span class="choice-text">\( 10 - |x| = 12 \)</span></li>
+    <li><span class="choice-letter">Г.&nbsp;</span><span class="choice-text">\( |x - 2| = |x| \)</span></li>
+    <li><span class="choice-letter">Д.</span><span class="choice-text"> \( |x| = 0,001 \)</span></li>
+  </ul>
+
+  <div class="answer-buttons">
+    <input type="radio" name="q20" value="А" id="q20a">
+    <label for="q20a" class="square-btn">А</label>
+
+    <input type="radio" name="q20" value="Б" id="q20b">
+    <label for="q20b" class="square-btn">Б</label>
+
+    <input type="radio" name="q20" value="В" id="q20c">
+    <label for="q20c" class="square-btn">В</label>
+
+    <input type="radio" name="q20" value="Г" id="q20d">
+    <label for="q20d" class="square-btn">Г</label>
+
+    <input type="radio" name="q20" value="Д" id="q20e">
+    <label for="q20e" class="square-btn">Д</label>
+  </div>
+</div>
+  
+  <!-- Задание 21 -->
+<div class="question" id="q21">
+  <p>21. Установіть відповідність між виразом (1-3) та його спрощеним виглядом (А-Д), якщо \( x \lt -2 \).</p>
+
+  <div class="matching">
+    <div class="left-column">
+      <h4>Вирази</h4>
+      <p>1. \( \sqrt{x^2 + 4x + 4} \)</p>
+      <p>2. \(\sqrt{(x-1)^2} + \sqrt{(x+2)^2} \)</p>
+      <p>3. \( \frac{|x+2|}{x+2} \)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Спрощені вирази</h4>
+      <p style="line-height:2.6">А.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\( 1 \)</p>
+      <p style="line-height:2.6">Б.&nbsp;&nbsp;&nbsp;\( -1 \)</p>
+      <p style="line-height:2.6">В.&nbsp;&nbsp;\( -x - 2 \)</p>
+      <p style="line-height:2.6">Г.&nbsp;&nbsp;&nbsp;\( -2x - 1 \)</p>
+      <p style="line-height:2.6">Д.&nbsp;&nbsp;\( 1 - 2x \)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q21-1" value="А"></td>
+        <td><input type="radio" name="q21-1" value="Б"></td>
+        <td><input type="radio" name="q21-1" value="В"></td>
+        <td><input type="radio" name="q21-1" value="Г"></td>
+        <td><input type="radio" name="q21-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q21-2" value="А"></td>
+        <td><input type="radio" name="q21-2" value="Б"></td>
+        <td><input type="radio" name="q21-2" value="В"></td>
+        <td><input type="radio" name="q21-2" value="Г"></td>
+        <td><input type="radio" name="q21-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q21-3" value="А"></td>
+        <td><input type="radio" name="q21-3" value="Б"></td>
+        <td><input type="radio" name="q21-3" value="В"></td>
+        <td><input type="radio" name="q21-3" value="Г"></td>
+        <td><input type="radio" name="q21-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <!-- Задание 22 -->
+<div class="question" id="q22">
+  <p>22. Відомо, що \( a \lt b \lt 0 \lt c\).<br>Установіть відповідність між виразом (1-3) та його результатом (А-Д).</p>
+  <div class="matching">
+    <div class="left-column">
+      <h4>Вирази</h4><br>
+      <p>1. \( |a - b| + |b - a| \)</p>
+      <p>2. \( \frac{|c-a|}{c-a} + \frac{|b-c|}{b-c} \)</p>
+      <p>3. \( |a| + |b| + |a+b| \)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Результати</h4> 
+      <p style="line-height:2.6">А. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\( 0 \)</p>
+      <p style="line-height:2.6">Б. &nbsp;\( 2(b - a) \)</p>
+      <p style="line-height:2.6">В. &nbsp;\( 2(a - b) \)</p>
+      <p style="line-height:2.6">Г. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\( 2 \)</p>
+      <p style="line-height:2.6">Д. &nbsp;&nbsp;&nbsp;\( -2a \)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q22-1" value="А"></td>
+        <td><input type="radio" name="q22-1" value="Б"></td>
+        <td><input type="radio" name="q22-1" value="В"></td>
+        <td><input type="radio" name="q22-1" value="Г"></td>
+        <td><input type="radio" name="q22-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q22-2" value="А"></td>
+        <td><input type="radio" name="q22-2" value="Б"></td>
+        <td><input type="radio" name="q22-2" value="В"></td>
+        <td><input type="radio" name="q22-2" value="Г"></td>
+        <td><input type="radio" name="q22-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q22-3" value="А"></td>
+        <td><input type="radio" name="q22-3" value="Б"></td>
+        <td><input type="radio" name="q22-3" value="В"></td>
+        <td><input type="radio" name="q22-3" value="Г"></td>
+        <td><input type="radio" name="q22-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <!-- Задание 23 -->
+<div class="question" id="q23">
+  <p>23. Установіть відповідність між числовим виразом (1-3) та його значенням (А-Д). <br>Нагадаємо: \( \pi \approx 3,14 \), \( e \approx 2,71\).</p>
+ 
+  <div class="matching">
+    <div class="left-column">
+      <h4>Вирази</h4>
+      <p>1. \( |\pi - 4| + |3 - \pi| \)</p>
+      <p>2. \( |e - 2| - |e - 3| \)</p>
+      <p>3.  \( |\sqrt{2} - 1,4| + |1,5 - \sqrt{2}| \)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Значення</h4>
+      <p>А. &nbsp;\( 7 - 2\pi\)</p>
+      <p>Б.&nbsp;&nbsp;&nbsp;&nbsp; \( 1 \)</p>
+      <p>В.&nbsp; \( 2e - 5 \)</p>
+      <p>Г. &nbsp;&nbsp;\( 2\pi - 7 \)</p>
+      <p>Д. &nbsp;\( 5 - 2e \)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q23-1" value="А"></td>
+        <td><input type="radio" name="q23-1" value="Б"></td>
+        <td><input type="radio" name="q23-1" value="В"></td>
+        <td><input type="radio" name="q23-1" value="Г"></td>
+        <td><input type="radio" name="q23-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q23-2" value="А"></td>
+        <td><input type="radio" name="q23-2" value="Б"></td>
+        <td><input type="radio" name="q23-2" value="В"></td>
+        <td><input type="radio" name="q23-2" value="Г"></td>
+        <td><input type="radio" name="q23-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q23-3" value="А"></td>
+        <td><input type="radio" name="q23-3" value="Б"></td>
+        <td><input type="radio" name="q23-3" value="В"></td>
+        <td><input type="radio" name="q23-3" value="Г"></td>
+        <td><input type="radio" name="q23-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <!-- Задание 24 -->
+<div class="question" id="q24">
+   <p>24.  Установіть відповідність між виразом (1-3) та його спрощеним виглядом (А-Д), якщо \( x \in (1; 2) \).</p>
+    
+  <div class="matching">
+    <div class="left-column">
+      <h4>Вирази</h4>
+      <br>
+      <p>1. \( ||x - 1| - x| \)</p>
+      <p>2. \( ||x - 3| + x| \)</p>
+      <p>3. \( |1 - |x - 2|| \)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Спрощені вирази</h4>
+      <p>А. &nbsp;&nbsp;&nbsp;&nbsp;\(3\)</p>
+      <p>Б. &nbsp;&nbsp;&nbsp;&nbsp;\(1\)</p>
+      <p>В. &nbsp;&nbsp;\( x - 1 \)</p>
+      <p>Г. &nbsp;&nbsp;&nbsp;\( 3 - x \)</p>
+      <p>Д. &nbsp;&nbsp;\( 2x - 3 \)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q24-1" value="А"></td>
+        <td><input type="radio" name="q24-1" value="Б"></td>
+        <td><input type="radio" name="q24-1" value="В"></td>
+        <td><input type="radio" name="q24-1" value="Г"></td>
+        <td><input type="radio" name="q24-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q24-2" value="А"></td>
+        <td><input type="radio" name="q24-2" value="Б"></td>
+        <td><input type="radio" name="q24-2" value="В"></td>
+        <td><input type="radio" name="q24-2" value="Г"></td>
+        <td><input type="radio" name="q24-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q24-3" value="А"></td>
+        <td><input type="radio" name="q24-3" value="Б"></td>
+        <td><input type="radio" name="q24-3" value="В"></td>
+        <td><input type="radio" name="q24-3" value="Г"></td>
+        <td><input type="radio" name="q24-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  
+  <!-- Задание 25 -->
+<div class="question" id="q25">
+  <p>25. Установіть відповідність між дробовим виразом (1-3) та результатом його спрощення (А-Д) для заданих умов.</p>
+    
+  <div class="matching">
+    <div class="left-column">
+      <h4>Вирази</h4>
+      <p>1. \( \frac{x^2 - 4}{|x| - 2} \) при \( x \lt -2 \)</p>
+      <p>2. \( \frac{|x-1|}{x^2-1} \) при \( x \in (0; 1) \)</p>
+      <p>3. \( \frac{|x| + x}{x} \) при \( x \gt 0 \)</p>
+    </div>
+
+    <div class="right-column">
+      <h4>Результати</h4> 
+      <p style="line-height:2.6">А. &nbsp;&nbsp;&nbsp;\( x + 2 \)</p>
+      <p style="line-height:2.6">Б. &nbsp;&nbsp;&nbsp;\( 2 - x \)</p>
+      <p style="line-height:2.6">В. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\( 2 \)</p>
+      <p style="line-height:2.6">Г. &nbsp;&nbsp;&nbsp;&nbsp; \( \frac{1}{x+1} \)</p>
+      <p style="line-height:2.6">Д. &nbsp;\( -\frac{1}{x+1} \)</p>
+    </div>
+  </div>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>А</th>
+        <th>Б</th>
+        <th>В</th>
+        <th>Г</th>
+        <th>Д</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="radio" name="q25-1" value="А"></td>
+        <td><input type="radio" name="q25-1" value="Б"></td>
+        <td><input type="radio" name="q25-1" value="В"></td>
+        <td><input type="radio" name="q25-1" value="Г"></td>
+        <td><input type="radio" name="q25-1" value="Д"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="radio" name="q25-2" value="А"></td>
+        <td><input type="radio" name="q25-2" value="Б"></td>
+        <td><input type="radio" name="q25-2" value="В"></td>
+        <td><input type="radio" name="q25-2" value="Г"></td>
+        <td><input type="radio" name="q25-2" value="Д"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="radio" name="q25-3" value="А"></td>
+        <td><input type="radio" name="q25-3" value="Б"></td>
+        <td><input type="radio" name="q25-3" value="В"></td>
+        <td><input type="radio" name="q25-3" value="Г"></td>
+        <td><input type="radio" name="q25-3" value="Д"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <!-- Задание 26 -->
+<div class="question" id="q26">
+  <p><strong>26. Обчисліть значення виразу \( \frac{|x-5|}{5-x} - \frac{|x|}{x} \), якщо \( x \in (0; 5) \).</strong></p>
+    
+    <input type="text" class="open-answer" name="q26" data-correct="18"
+
+       placeholder="Введіть свою відповідь">
+
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+
+  <p class="result"></p>
+
+</div>
+
+<!-- Задание 27 -->
+<div class="question" id="q27">
+  <p><strong>27. Спростіть вираз \( \sqrt{(\sqrt{2}-2)^2} + \sqrt{(\sqrt{2}-1)^2} \).</strong></p>
+  <input type="text" class="open-answer" name="q27" data-correct="18"
+       placeholder="Введіть свою відповідь">
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<!-- Задание 28 -->
+<div class="question" id="q28">
+  <p><strong>28. Знайдіть значення виразу \( |2a - 6| - |a + 2| \), якщо \( a = 2,5 \).</strong></p>
+  
+  <input type="text" class="open-answer" name="q28" data-correct="18" placeholder="Введіть свою відповідь">
+  
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<!-- Задание 29 -->
+<div class="question" id="q29">
+  <p><strong>29. Обчисліть значення виразу \( |||2-5|-7|-10| \).</p>
+  
+  <input type="text" class="open-answer" name="q29" data-correct="0" placeholder="Введіть свою відповідь">
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<!-- Задание 30 -->
+<div class="question" id="q30">
+  <p><strong>30. Визначте значення виразу \( \frac{a^2-9}{|a|-3} \), якщо \( a = -3,2 \).</strong></p>
+  
+  <input type="text" class="open-answer" name="q30" data-correct="2" placeholder="Введіть свою відповідь">
+  <button type="button" class="check-btn">Підтвердити вибір</button>
+  <p class="result"></p>
+</div>
+
+<script>
+  // Универсальная проверка всех открытых ответов
+  const buttons = document.querySelectorAll(".check-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const questionDiv = button.parentElement;
+      const input = questionDiv.querySelector(".open-answer");
+      const result = questionDiv.querySelector(".result");
+
+      // Заменяем запятую на точку для parseFloat
+      const correctAnswer = parseFloat(input.dataset.correct.replace(',', '.'));
+      const userAnswer = parseFloat(input.value.replace(',', '.'));
+
+      }
+    });
+  });
+</script>
+  
+ <!-- Блок с результатами -->  
+      
+    <!-- Кнопки навигации -->
+<div id="nav-buttons" style="display: none;">
+ <!-- <button type="button" onclick="prevQuestion()">← Назад</button>
+  <button type="button" onclick="nextQuestion()">Вперед →</button> -->
+  
+  <button id="finish-test" type="button">Завершити тестування</button>
+  
+</div>
+  
+ 
+<!-- результаты -->
+
+<div id="results-screen" class="hidden" style="display:none;">
+
+  <h2 id="results-title">Ваш результат</h2>
+
+  <div id="results-summary"></div>
+
+  <div id="results-list"></div>
+
+  
+
+  <!-- Контейнер для кнопок -->
+
+  <div class="results-buttons">
+
+    <button id="restart-button" type="button">Пройти тест ще раз</button>
+ <a href="https://mathdrive.github.io/vsi.testi/vsi_testi.html">
+    <button id="back-to-list-button" type="button">Перейти до переліку тестів</button>
+
+  </div>
+
+</div>
+
+<!-- Подпись автора -->
+<footer>
+  <h6>Автор: Олена Томашевська</h6>
+</footer>
+          
+<script>
+    // === СТАРТОВАЯ СТРАНИЦА ===
+
+const startScreen = document.getElementById("start-screen");
+
+const startButton = document.getElementById("start-button");
+
+const questionNav = document.getElementById("question-nav");
+
+const questions = Array.from(document.querySelectorAll(".question"));
+
+const navButtons = document.getElementById("nav-buttons");
+
+const finishButton = document.getElementById("finish-test");
+
+
+
+let currentIndex = 0;
+
+let autoNextTimeout;
+
+// Прячем всё при загрузке
+
+questions.forEach(q => q.style.display = "none");
+
+navButtons.style.display = "none";
+
+questionNav.style.display = "none";
+
+// === Правильные ответы ===
+
+const correctAnswers = {
+
+  "q1": "Б", "q2": "Г", "q3": "Б", "q4": "В", "q5": "Б",
+
+  "q6": "А", "q7": "Д", "q8": "В", "q9": "Д", "q10": "В",
+
+  "q11": "А", "q12": "Д", "q13": "А", "q14": "В", "q15": "А",
+
+  "q16": "Б", "q17": "Г", "q18": "А", "q19": "Д", "q20": "В",
+
+  "q21": { "1": "В", "2": "Г", "3": "Б" },
+
+  "q22": { "1": "Б", "2": "А", "3": "Д" },
+
+  "q23": { "1": "Б", "2": "В", "3": "А" },
+
+  "q24": { "1": "Б", "2": "А", "3": "В" },
+
+  "q25": { "1": "Б", "2": "Д", "3": "В" },
+
+  "q26": "0", "q27": "1", "q28": "-3,5", "q29": "6", "q30": "-0,2"
+
+};
+
+// === Создаём верхнюю навигацию ===
+
+function createQuestionNav() {
+
+  questionNav.innerHTML = "";
+
+  questions.forEach((q, index) => {
+
+    const btn = document.createElement("button");
+
+    btn.type = "button";
+
+    btn.textContent = index + 1;
+
+    btn.addEventListener("click", () => showQuestion(index));
+
+    questionNav.appendChild(btn);
+
+  });
+
+  updateNavButtons();
+
+}
+
+// === Обновить подсветку кнопок ===
+
+function updateNavButtons() {
+  const navButtons = questionNav.querySelectorAll("button");
+
+  navButtons.forEach((btn, i) => {
+    btn.classList.toggle("active", i === currentIndex);
+
+    // снимаем старые метки
+    btn.classList.remove("answered", "half");
+
+    const q = questions[i];
+
+    // ==== ВОПРОСЫ 1-20 ====
+    if (q.querySelector(".answer-buttons")) {
+      if (q.querySelector("input[type=radio]:checked")) {
+        btn.classList.add("answered");
+      }
+    }
+
+    // ==== ВОПРОСЫ 21-25 ====
+    if (q.querySelector(".match-table")) {
+      const rows = q.querySelectorAll("tbody tr");
+      const answeredCount = Array.from(rows)
+        .filter(tr => tr.querySelector("input[type=radio]:checked")).length;
+
+      if (answeredCount === 3) {
+        btn.classList.add("answered");
+      } else if (answeredCount > 0) {
+        btn.classList.add("half");
+      }
+    }
+    
+// === Блокировка повторного выбора одного и того же варианта (А–Д) в пределах одного вопроса ===
+document.querySelectorAll(".match-table").forEach(table => {
+
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach(row => {
+    const radios = row.querySelectorAll("input[type=radio]");
+
+    radios.forEach(radio => {
+      radio.addEventListener("change", () => {
+
+        // Собираем выбранные значения (например ["B", "D"])
+        const chosenValues = Array.from(table.querySelectorAll("input[type=radio]:checked"))
+          .map(r => r.value);
+
+        // Для каждой строки
+        rows.forEach(r => {
+
+          const allRadios = r.querySelectorAll("input[type=radio]");
+
+          allRadios.forEach(option => {
+
+            // Если это значение уже выбрано в другом ряду — блокируем
+            if (chosenValues.includes(option.value) && !option.checked) {
+              option.disabled = true;
+            } else {
+              // Иначе — снимаем блокировку
+              option.disabled = false;
+            }
+
+          });
+
+        });
+
+      });
+    });
+  });
+});
+
+    // ==== ВОПРОСЫ 26–30 ====
+    if (q.querySelector(".open-answer")) {
+      const result = q.querySelector(".result");
+
+      if (result && result.textContent.trim() !== "") {
+        btn.classList.add("answered");
+      }
+    }
+  });
+}
+
+// === Показ вопроса ===
+
+function showQuestion(index) {
+
+  questions.forEach(q => q.style.display = "none");
+
+  questions[index].style.display = "block";
+
+  currentIndex = index;
+
+  updateNavButtons();
+
+  if (autoNextTimeout) {
+
+    clearTimeout(autoNextTimeout);
+
+    autoNextTimeout = null;
+
+  }
+
+}
+
+// ==== СТАРТ ТЕСТА ====
+
+startButton.addEventListener("click", () => {
+
+  startScreen.style.display = "none";
+
+  navButtons.style.display = "block";
+
+  questionNav.style.display = "flex";
+
+  questionNav.classList.add("visible"); // ← ВАЖНО!
+
+  createQuestionNav();
+
+  showQuestion(0);
+
+});
+
+// ==== Автопереходы (радиокнопки) ====
+
+document.querySelectorAll(".answer-buttons input[type=radio]")
+
+  .forEach(input => {
+
+    input.addEventListener("change", () => {
+updateNavButtons();
+      if (autoNextTimeout) clearTimeout(autoNextTimeout);
+
+      autoNextTimeout = setTimeout(() => {
+
+        if (currentIndex < questions.length - 1) showQuestion(currentIndex + 1);
+
+      }, 3000);
+
+    });
+
+  });
+
+// ==== Автопереход (таблицы соответствия 21–25) ====
+
+document.querySelectorAll(".match-table").forEach(table => {
+
+  const qDiv = table.closest(".question");
+
+  const radios = table.querySelectorAll("input[type='radio']");
+
+  let tableTimeout;
+
+  radios.forEach(radio => {
+
+    radio.addEventListener("change", () => {
+
+      const rows = table.querySelectorAll("tbody tr");
+
+      const allSelected = Array.from(rows)
+
+        .every(tr => tr.querySelector("input[type='radio']:checked"));
+      
+      if (allSelected) {
+        
+        updateNavButtons();
+
+        clearTimeout(tableTimeout);
+
+        tableTimeout = setTimeout(() => {
+
+          const index = questions.indexOf(qDiv);
+
+          if (index < questions.length - 1) showQuestion(index + 1);
+
+        }, 3000);
+
+      }
+
+    });
+
+  });
+
+});
+
+// ==== Автопереход кнопки "Підтвердити вибір" 26–30 ====
+document.querySelectorAll(".check-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const qDiv = button.closest(".question");
+    const input = qDiv.querySelector(".open-answer");  // поле с ответом
+    const result = qDiv.querySelector(".result");      // контейнер для отметки ответа
+
+    if (!input || !result) return;                     // если нет полей — выходим
+
+    // Отмечаем, что ответ дан, чтобы навигация закрасила кружок
+    result.textContent = "✔ Відповідь отримано";
+
+    // Обновляем верхние кружки
+    updateNavButtons();
+
+    // Автопереход через 3 секунды
+    setTimeout(() => {
+      const index = questions.indexOf(qDiv);
+      if (index < questions.length - 1) showQuestion(index + 1);
+    }, 3000);
+  });
+});
+
+// === Нижняя навигация ===
+
+window.nextQuestion = function () {
+
+  if (currentIndex < questions.length - 1) showQuestion(currentIndex + 1);
+
+};
+
+window.prevQuestion = function () {
+
+  if (currentIndex > 0) {
+
+    showQuestion(currentIndex - 1);
+
+  } else {
+
+    questions.forEach(q => q.style.display = "none");
+
+    startScreen.style.display = "block";
+
+    navButtons.style.display = "none";
+
+    questionNav.style.display = "none";
+
+  }
+
+};
+
+// === ОКРАШИВАНИЕ КРУЖКОВ ПОСЛЕ ЗАВЕРШЕНИЯ ===
+function applyFinalNavColors() {
+  const navBtns = questionNav.querySelectorAll("button");
+
+  navBtns.forEach((btn, index) => {
+    const qNum = index + 1;
+    let btnClass = "";
+
+    // Вопросы 1–20 (радио)
+    if (qNum >= 1 && qNum <= 20) {
+      const selected = document.querySelector(`input[name="q${qNum}"]:checked`);
+      const correct = correctAnswers[`q${qNum}`];
+      btnClass = (selected && selected.value === correct) ? "correct" : "wrong";
+    }
+
+    // Вопросы 21–25 (таблицы соответствия)
+    else if (qNum >= 21 && qNum <= 25) {
+      const qId = `q${qNum}`;
+      const correctObj = correctAnswers[qId];
+      let total = Object.keys(correctObj).length;
+      let correctCount = 0;
+
+      Object.keys(correctObj).forEach(key => {
+        const selected = document.querySelector(`input[name="${qId}-${key}"]:checked`);
+        if (selected && selected.value === correctObj[key]) correctCount++;
+      });
+
+      if (correctCount === total) btnClass = "correct";
+      else if (correctCount === 0) btnClass = "wrong";
+      else btnClass = "half"; // частично верно
+    }
+
+    // Вопросы 26–30 (открытые)
+    else if (qNum >= 26 && qNum <= 30) {
+      const input = document.querySelector(`input[name="q${qNum}"]`);
+      const userAns = input ? input.value.trim() : "";
+      const correct = correctAnswers[`q${qNum}`];
+      btnClass = (userAns.toLowerCase() === String(correct).toLowerCase()) ? "correct" : "wrong";
+    }
+
+    btn.classList.remove("correct", "wrong", "half");
+    if (btnClass) btn.classList.add(btnClass);
+  });
+}
+  // ===== Обработчик кнопки "Завершити тестування" =====
+// ===== Обработчик кнопки "Завершити тестування" =====
+
+finishButton.addEventListener("click", () => {
+
+  if (autoNextTimeout) {
+
+    clearTimeout(autoNextTimeout);
+
+    autoNextTimeout = null;
+
+  }
+
+  let score = 0;
+
+  const resultsList = document.getElementById("results-list");
+
+  resultsList.innerHTML = ""; // очищаем перед вставкой
+
+  // ===== Вопросы 1–20 =====
+
+  for (let i = 1; i <= 20; i++) {
+
+    const q = "q" + i;
+
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+
+    const correct = correctAnswers[q];
+
+    const userAnswer = selected ? selected.value : "—";
+
+    const userCorrect = selected && selected.value === correct;
+
+    if (userCorrect) score += 1;
+
+    const btn = document.createElement("div");
+
+    btn.className = "result-btn " + (userCorrect ? "correct" : "wrong");
+
+    btn.innerHTML = `
+
+      <div class="question-title">Питання ${i}</div>
+
+      <div class="user-answer">Ваша відповідь: ${userAnswer}</div>
+
+      ${!userCorrect ? `<div class="correct-answer">Правильна відповідь: ${correct}</div>` : ''}
+
+    `;
+
+    resultsList.appendChild(btn);
+
+  }
+
+// ======= Вопросы 21–25 =======
+for (let i = 21; i <= 25; i++) {
+  const q = "q" + i;
+  const correctObj = correctAnswers[q];
+
+  let localScore = 0;
+  let answersLine = "";  // строка из 1-А 2-Б 3-В
+  let correctLine = "";  // правильная строка (если нужны исправления)
+
+  Object.keys(correctObj).forEach(key => {
+    const selected = document.querySelector(`input[name="${q}-${key}"]:checked`);
+    const userAnswer = selected ? selected.value : "—";
+    const isCorrect = userAnswer === correctObj[key];
+
+    if (isCorrect) localScore++;
+
+    // добавляем ответ с подсветкой (но БЕЗ span.match-item)
+    answersLine += `
+      <span class="answer ${isCorrect ? 'correct-answer-bg' : 'wrong-answer-bg'}">
+        ${key}-${userAnswer}
+      </span>
+    `;
+
+    correctLine += `${key}-${correctObj[key]} `;
+  });
+
+  score += localScore;
+
+  const btn = document.createElement("button");
+
+  if (localScore === Object.keys(correctObj).length)
+    btn.className = "result-btn correct";
+  else if (localScore === 0)
+    btn.className = "result-btn wrong";
+  else
+    btn.className = "result-btn half";
+
+  btn.innerHTML = `
+    <div class="question-title">Питання ${i}</div>
+
+    <div class="user-answer-label">Ваша відповідь:</div>
+    <div class="user-answer-values">${answersLine}</div>
+
+    ${localScore === Object.keys(correctObj).length ? "" : `
+      <div class="correct-answer-label">Правильна відповідь:</div>
+      <div class="correct-answer-values">${correctLine}</div>
+    `}
+  `;
+
+  resultsList.appendChild(btn);
+}
+  // ===== Вопросы 26–30 =====
+
+  for (let i = 26; i <= 30; i++) {
+
+    const q = "q" + i;
+
+    const input = document.querySelector(`input[name="${q}"]`);
+
+    const userAnswer = input ? input.value.trim() : "";
+
+    const correct = correctAnswers[q];
+
+    const userCorrect = userAnswer.toLowerCase() === correct.toLowerCase();
+
+    if (userCorrect) score += 2;
+
+    const btn = document.createElement("div");
+
+    btn.className = "result-btn " + (userCorrect ? "correct" : "wrong");
+
+    btn.innerHTML = `
+
+      <div class="question-title">Питання ${i}</div>
+
+      <div class="user-answer">Ваша відповідь: ${userAnswer || "—"}</div>
+
+      ${!userCorrect ? `<div class="correct-answer">Правильна відповідь: ${correct}</div>` : ''}
+
+    `;
+
+    resultsList.appendChild(btn);
+
+  }
+
+  // ===== Показываем результаты =====
+
+  const percent = Math.round((score / 45) * 100);
+
+  document.getElementById("results-summary").innerHTML = `
+
+    <p><b>Набрано балів:</b> ${score} із 45</p>
+
+    <p><b>Результат:</b> ${percent}%</p>
+
+  `;
+
+  // Показываем блок с результатами
+
+  document.getElementById("results-screen").style.display = "block";
+
+  // Показываем верхнюю навигацию над результатами
+
+  questionNav.style.display = "flex";
+
+  // Прячем нижние кнопки
+
+  navButtons.style.display = "none";
+
+  // Прячем вопросы
+
+  questions.forEach(q => q.style.display = "none");
+
+  // Раскрасить кружки сверху
+
+  applyFinalNavColors();
+
+});
+
+// ===== Функция перехода к вопросу =====
+
+function goToQuestion(num) {
+
+  // Прячем результаты
+
+  document.getElementById("results-screen").style.display = "none";
+
+  // Показываем нужный вопрос
+
+  questions.forEach((q, index) => {
+
+    q.style.display = (index === num - 1) ? "block" : "none";
+
+  });
+
+  // Восстанавливаем навигацию
+
+  questionNav.style.display = "flex";
+
+  navButtons.style.display = "flex";
+
+}
+// Кнопка "Пройти тест ще раз"
+
+// ===== Кнопка "Пройти тест ще раз" =====
+
+document.getElementById("restart-button").onclick = (event) => {
+
+  event.preventDefault();
+
+  // Сброс текущего индекса и автоперехода
+
+  currentIndex = 0;
+
+  if (autoNextTimeout) {
+
+    clearTimeout(autoNextTimeout);
+
+    autoNextTimeout = null;
+
+  }
+
+  // Скрыть экран результатов
+
+  document.getElementById("results-screen").style.display = "none";
+
+  // Скрыть все вопросы
+
+  questions.forEach(q => q.style.display = "none");
+
+  // Сброс всех ответов
+
+  document.querySelectorAll('input').forEach(inp => {
+
+    if (inp.type === "radio" || inp.type === "checkbox") inp.checked = false;
+
+    else inp.value = "";
+
+  });
+
+  // Сброс отмеченных результатов для открытых вопросов (26–30)
+
+questions.forEach(q => {
+
+  const resultEl = q.querySelector(".result");
+
+  if (resultEl) resultEl.textContent = "";
+
+});
+  
+  // Сброс результатов
+
+  document.getElementById("results-list").innerHTML = "";
+
+  document.getElementById("results-summary").innerHTML = "";
+
+  // Сброс цветов верхней навигации
+
+  document.querySelectorAll('#question-nav button').forEach(btn => {
+
+    btn.className = ''; // убираем все классы correct/wrong/half/active/answered
+
+  });
+
+  // Показ стартового экрана
+
+  startScreen.style.display = "block";
+
+  // Скрыть навигацию и нижние кнопки до старта теста
+
+  questionNav.style.display = "none";
+
+  navButtons.style.display = "none";
+
+};
+    </script>
+</body>
+</html>
